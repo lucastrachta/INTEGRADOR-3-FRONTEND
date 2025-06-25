@@ -1,0 +1,140 @@
+.admin-usuarios {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  background-color: #fafafa;
+  border-radius: 8px;
+}
+
+.admin-usuarios .form-container {
+  margin-bottom: 2rem;
+}
+
+.admin-usuarios .input-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-usuarios label {
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.admin-usuarios input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.admin-usuarios button {
+  padding: 0.6rem 1.2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #d9534f;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.admin-usuarios button:hover {
+  background-color: #b52b27;
+}
+
+.admin-usuarios .error {
+  color: #c9302c;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+.admin-usuarios table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  box-shadow: 0 0 8px rgb(0 0 0 / 0.12);
+}
+
+.admin-usuarios th,
+.admin-usuarios td {
+  padding: 1rem;
+  border: none;
+  background-color: #fff;
+  text-align: left;
+  vertical-align: middle;
+  border-radius: 6px;
+  box-shadow: inset 0 0 4px rgb(0 0 0 / 0.05);
+}
+
+.admin-usuarios th {
+  background-color: #e8e8e8;
+  font-weight: 600;
+}
+
+.admin-usuarios button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-size: 1.1rem;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.admin-usuarios button:hover {
+  color: #d9534f;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .admin-usuarios {
+    padding: 1rem;
+  }
+
+  .admin-usuarios table,
+  .admin-usuarios tbody,
+  .admin-usuarios tr,
+  .admin-usuarios td {
+    display: block;
+    width: 100%;
+  }
+
+  .admin-usuarios thead {
+    display: none;
+  }
+
+  .admin-usuarios tr {
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  }
+
+  .admin-usuarios td {
+    position: relative;
+    padding-left: 55%;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    text-align: right;
+  }
+
+  .admin-usuarios td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 600;
+    color: #444;
+    text-align: left;
+  }
+
+  .admin-usuarios tr td:last-child {
+    border-bottom: none;
+  }
+}

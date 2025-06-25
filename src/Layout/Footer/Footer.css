@@ -1,0 +1,24 @@
+.main-footer {
+    background-color: #270d0d;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+
+    ul {
+        list-style: none;
+    }
+
+    section {
+        flex: 1 1 150px;
+        padding: 16px;
+    }
+}
+
+@media screen and (width >=768px) {
+
+    .main-footer {
+        flex-direction: row;
+        font-size: 16px;
+    }
+}

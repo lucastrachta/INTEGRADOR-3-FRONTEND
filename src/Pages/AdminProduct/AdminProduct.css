@@ -1,0 +1,135 @@
+.admin-product {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.admin-product .form-container {
+  margin-bottom: 2rem;
+}
+
+.admin-product .input-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-product label {
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.admin-product input,
+.admin-product select,
+.admin-product textarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.admin-product button {
+  padding: 0.6rem 1.2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #0056b3;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.admin-product button:hover {
+  background-color: #003d80;
+}
+
+.admin-product .error {
+  color: #d9534f;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.admin-product table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+}
+
+.admin-product th,
+.admin-product td {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.admin-product th {
+  background-color: #e6f0ff;
+  font-weight: 700;
+}
+
+.admin-product button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+.admin-product button:hover {
+  color: #0056b3;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .admin-product {
+    padding: 1rem;
+  }
+
+  .admin-product table,
+  .admin-product tbody,
+  .admin-product tr,
+  .admin-product td {
+    display: block;
+    width: 100%;
+  }
+
+  .admin-product thead {
+    display: none;
+  }
+
+  .admin-product tr {
+    margin-bottom: 1rem;
+    border: 1px solid #0056b3;
+    border-radius: 8px;
+    padding: 0.75rem;
+    background-color: #f0f7ff;
+  }
+
+  .admin-product td {
+    position: relative;
+    padding-left: 50%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    text-align: right;
+  }
+
+  .admin-product td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 700;
+    color: #003d99;
+    text-align: left;
+  }
+
+  .admin-product tr td:last-child {
+    border-bottom: none;
+  }
+}

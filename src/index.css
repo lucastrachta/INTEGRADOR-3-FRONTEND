@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2950c7;
+    --secondary-color: #222222;
+    --font-color-light: #f1f1f1;
+    --font-color-dark: #444;
+    --primary-font: 'Lato', sans-serif;
+    --secondary-font: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--primary-font);
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+.main-container {
+    flex: 1;
+}
