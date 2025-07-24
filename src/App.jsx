@@ -8,6 +8,7 @@ import Register from './pages/Register/Register';
 import AdminProduct from './pages/AdminProduct/AdminProduct';
 import DetalleProducto from './pages/DetalleProducto/DetalleProducto';
 import AdminUsuarios from "./pages/AdminUsuarios/AdminUsuarios.jsx";
+import Login from "./pages/Login/Login"; // 
 
 
 
@@ -21,8 +22,10 @@ export default function App() {
           {}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
           <Route path="/admin-product" element={<AdminProduct />} />
            <Route path="/detalle/:id" element={<DetalleProducto />} />
            <Route path="/adminusuarios" element={<AdminUsuarios />} />

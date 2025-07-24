@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./SectionProducts.css";
 
 
-const URL = "https://685753ee21f5d3463e54fcf6.mockapi.io";
+const URL = "http://localhost:3000";
 
 export default function SectionProducts() {
 
@@ -16,7 +16,7 @@ const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`${URL}/productos`)
+    axios.get(`${URL}/products`)
       .then(res => setProducts(res.data))
       .catch(err => console.error("Error cargando productos:", err));
   }, []);

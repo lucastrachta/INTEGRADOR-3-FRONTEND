@@ -1,4 +1,142 @@
-.admin-product {
+
+/* Contenedor principal */
+.admin-products-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+.admin-products-container h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+/* Formulario */
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.product-form input,
+.product-form textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.product-form button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-form button:hover {
+  background-color: #0d8ae3;
+}
+
+/* Lista de productos */
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Tarjeta de producto */
+.product-card {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.product-details {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.product-details h4 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: #222;
+}
+
+.product-details p {
+  margin: 4px 0;
+  color: #555;
+}
+
+/* Botones */
+.btn-edit,
+.btn-delete {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  margin-left: 8px;
+}
+
+.btn-edit {
+  background-color: #4caf50;
+}
+
+.btn-edit:hover {
+  background-color: #43a047;
+}
+
+.btn-delete {
+  background-color: #f44336;
+}
+
+.btn-delete:hover {
+  background-color: #e53935;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .product-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-details {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* .admin-product {
   max-width: 900px;
   margin: 0 auto;
   padding: 1rem;
@@ -62,8 +200,8 @@
 .admin-product th,
 .admin-product td {
   padding: 0.75rem;
-  border: 1px solid #ccc;
-  text-align: left;
+  border: 1px solid #ccc; */
+  /* text-align: left;
   vertical-align: middle;
 }
 
@@ -84,13 +222,13 @@
   color: #0056b3;
 }
 
-/* Responsive */
+Responsive
 @media screen and (max-width: 768px) {
   .admin-product {
-    padding: 1rem;
-  }
+    padding: 1rem; */
+  
 
-  .admin-product table,
+  /* .admin-product table,
   .admin-product tbody,
   .admin-product tr,
   .admin-product td {
@@ -121,8 +259,8 @@
   .admin-product td::before {
     content: attr(data-label);
     position: absolute;
-    left: 1rem;
-    top: 50%;
+    left: 1rem; */
+    /* top: 50%;
     transform: translateY(-50%);
     font-weight: 700;
     color: #003d99;
@@ -132,4 +270,4 @@
   .admin-product tr td:last-child {
     border-bottom: none;
   }
-}
+} */

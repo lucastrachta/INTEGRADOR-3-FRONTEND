@@ -18,7 +18,7 @@ export default function Footer() {
           </ul>
         </section>
         <section>
-          <h3>Ferreteria Argentina (LOGO)</h3>
+          <h3>Casa Argentina (LOGO)</h3>
           <p> 2025 - Copyright © </p>
         </section>
         <section>
@@ -26,7 +26,7 @@ export default function Footer() {
           <ul>
             <li>Telefono: 3704-685941</li>
             <li>Celular: 3704-685941</li>
-            <li>Email: Ferreteria-Argentina@gmail.com</li>
+            <li>Email: Casa-Argentina@gmail.com</li>
             <li>Direccion: BuenosAires</li>
           </ul>
         </section>

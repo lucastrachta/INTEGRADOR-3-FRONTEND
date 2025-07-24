@@ -1,4 +1,72 @@
-.admin-usuarios {
+
+
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+input, select {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f5f5f5;
+}
+
+p {
+  color: red;
+  margin: 0;
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+/* .admin-usuarios {
   max-width: 850px;
   margin: 0 auto;
   padding: 1rem;
@@ -56,9 +124,9 @@
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 8px;
-  box-shadow: 0 0 8px rgb(0 0 0 / 0.12);
-}
+  box-shadow: 0 0 8px rgb(0 0 0 / 0.12); */
 
+/* 
 .admin-usuarios th,
 .admin-usuarios td {
   padding: 1rem;
@@ -89,15 +157,15 @@
 }
 
 /* Responsive */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .admin-usuarios {
     padding: 1rem;
   }
 
   .admin-usuarios table,
   .admin-usuarios tbody,
-  .admin-usuarios tr,
-  .admin-usuarios td {
+  .admin-usuarios tr, */ 
+  /* .admin-usuarios td {
     display: block;
     width: 100%;
   }
@@ -128,8 +196,8 @@
     position: absolute;
     left: 1rem;
     top: 50%;
-    transform: translateY(-50%);
-    font-weight: 600;
+    transform: translateY(-50%); */
+    /* font-weight: 600;
     color: #444;
     text-align: left;
   }
@@ -137,4 +205,5 @@
   .admin-usuarios tr td:last-child {
     border-bottom: none;
   }
-}
+} */
+/* } */

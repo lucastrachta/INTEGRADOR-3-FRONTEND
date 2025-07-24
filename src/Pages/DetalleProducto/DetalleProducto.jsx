@@ -2,14 +2,14 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const URL = "https://685753ee21f5d3463e54fcf6.mockapi.io";
+const URL = "http://localhost:3000";
 
 export default function DetalleProducto() {
   const { id } = useParams(); 
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get(`${URL}/productos/${id}`)
+    axios.get(`${URL}/products/${id}`)
       .then((response) => setProduct(response.data))
       .catch((error) => console.error("Error al obtener producto:", error));
   }, [id]);

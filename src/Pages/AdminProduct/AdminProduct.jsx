@@ -1,189 +1,119 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
-import "./AdminProduct.css";
+import './AdminProduct.css';
 
-const URL = "https://685753ee21f5d3463e54fcf6.mockapi.io/productos";
 
 export default function AdminProduct() {
   const [products, setProducts] = useState([]);
-  const [editingProduct, setEditingProduct] = useState(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    price: "",
+    description: "",
+  });
+  const [editingId, setEditingId] = useState(null);
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const API = "http://localhost:3000/products";
+
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    getProducts();
+    fetchProducts();
   }, []);
 
-  async function getProducts() {
-    try {
-      const res = await axios.get(URL);
-      setProducts(res.data);
-    } catch (error) {
-      console.error("Error fetching products:", error);
+  const fetchProducts = async () => {
+    const res = await axios.get(API);
+    setProducts(res.data);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (editingId) {
+      await axios.put(`${API}/${editingId}`, formData, );
+      setEditingId(null);
+    } else {
+      await axios.post(API, formData , 
+        { headers: { Authorization: token } }
+      );
     }
-  }
+    setFormData({ name: "", price: "", description: "" });
+    fetchProducts();
+  };
 
-  function handleEdit(product) {
-    setEditingProduct(product);
-    reset(product);
-  }
-
-  async function deleteProduct(id) {
-    const result = await Swal.fire({
-      title: "¿Estás seguro?",
-      text: "Esta acción no se puede deshacer",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Sí, eliminar",
-      cancelButtonText: "Cancelar",
+  const handleEdit = (product) => {
+    setFormData({
+      name: product.name,
+      price: product.price,
+      description: product.description,
     });
+    setEditingId(product._id);
+  };
 
-    if (result.isConfirmed) {
-      try {
-        await axios.delete(`${URL}/${id}`);
-        Swal.fire("Eliminado", "Producto eliminado correctamente", "success");
-        getProducts();
-      } catch {
-        Swal.fire("Error", "No se pudo eliminar el producto", "error");
-      }
-    }
-  }
+  const handleDelete = async (id) => {
+    await axios.delete(`${API}/${id}`);
+    fetchProducts();
+  };
 
-  async function onSubmit(data) {
-    try {
-      if (editingProduct) {
-        await axios.put(`${URL}/${editingProduct.id}`, data);
-        Swal.fire("¡Éxito!", "Producto actualizado correctamente", "success");
-        setEditingProduct(null);
-      } else {
-        await axios.post(URL, data);
-        Swal.fire("¡Éxito!", "Producto creado correctamente", "success");
-      }
-      reset();
-      getProducts();
-    } catch {
-      Swal.fire("Error", "No se pudo guardar el producto", "error");
-    }
-  }
+
+
+
+
+
+
+
+  
+
+
+ axios.post({headers: {Authorization: token}})
 
   return (
-    <div className="admin-product">
+    <div className="container">
       <h2>Administrar Productos</h2>
 
-      <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
-        <div className="input-group">
-          <label>Nombre del producto</label>
-          <input
-            type="text"
-            {...register("name", { required: "El nombre es obligatorio", minLength: 3 })}
-          />
-          {errors.name && <p className="error">{errors.name.message}</p>}
-        </div>
-
-        <div className="input-group">
-          <label>Precio</label>
-          <input
-            type="number"
-            step="0.01"
-            {...register("price", { required: "El precio es obligatorio", min: 0.01 })}
-          />
-          {errors.price && <p className="error">{errors.price.message}</p>}
-        </div>
-
-        <div className="input-group">
-          <label>Descripción</label>
-          <textarea
-            {...register("description", { required: "La descripción es obligatoria", minLength: 10 })}
-          />
-          {errors.description && <p className="error">{errors.description.message}</p>}
-        </div>
-
-        <div className="input-group">
-          <label>Imagen (URL)</label>
-          <input
-            type="url"
-            {...register("image", {
-              required: "La URL de la imagen es obligatoria",
-              pattern: {
-                value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))$/i,
-                message: "Debe ser una URL válida de imagen",
-              },
-            })}
-          />
-          {errors.image && <p className="error">{errors.image.message}</p>}
-        </div>
-
-        <div className="input-group">
-          <label>Categoría</label>
-          <select {...register("category", { required: "Debe seleccionar una categoría" })} defaultValue="">
-            <option value="" disabled>
-              Seleccionar categoría
-            </option>
-            <option value="Comida">Comida</option>
-            <option value="Electrónica">Electrónica</option>
-            <option value="Ropa">Ropa</option>
-            <option value="Hogar">Hogar</option>
-          </select>
-          {errors.category && <p className="error">{errors.category.message}</p>}
-        </div>
-
-        <button type="submit">{editingProduct ? "Actualizar" : "Cargar"}</button>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Nombre"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="number"
+          name="price"
+          placeholder="Precio"
+          value={formData.price}
+          onChange={handleChange}
+          required
+        />
+        <textarea
+          name="description"
+          placeholder="Descripción"
+          value={formData.description}
+          onChange={handleChange}
+          required
+        ></textarea>
+        <button type="submit">{editingId ? "Actualizar" : "Crear"}</button>
       </form>
 
-      <div className="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Precio</th>
-              <th>Descripción</th>
-              <th>Imagen</th>
-              <th>Categoría</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((p) => (
-              <tr key={p.id}>
-                <td data-label="ID">{p.id}</td>
-                <td data-label="Nombre">{p.name}</td>
-                <td data-label="Precio">${Number(p.price).toFixed(2)}</td>
-                <td data-label="Descripción">{p.description}</td>
-                <td data-label="Imagen">
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                    style={{ width: 50, height: 50, objectFit: "cover", borderRadius: 6 }}
-                  />
-                </td>
-                <td data-label="Categoría">{p.category}</td>
-                <td data-label="Acciones">
-                  <button onClick={() => handleEdit(p)} title="Editar">
-                    <FontAwesomeIcon icon={faEdit} />
-                  </button>
-                  <button
-                    onClick={() => deleteProduct(p.id)}
-                    title="Eliminar"
-                    style={{ marginLeft: 8, color: "red" }}
-                  >
-                    <FontAwesomeIcon icon={faTrash} />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <hr />
+
+      <h3>Lista de productos</h3>
+      <ul>
+        {products.map((prod) => (
+          <li key={prod._id}>
+            <strong>{prod.name}</strong> - ${prod.price}<br />
+            {prod.description}<br />
+            <button onClick={() => handleEdit(prod)}>Editar</button>
+            <button onClick={() => handleDelete(prod._id)}>Eliminar</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
